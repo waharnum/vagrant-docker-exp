@@ -11,3 +11,18 @@
     yum: name=mysql state=latest
   - name: install docker
     yum: name=docker state=latest
+  - name: download pip install script
+    get_url:
+      url: https://bootstrap.pypa.io/get-pip.py
+      dest: /home/vagrant/get-pip.py
+  - name: install pip
+    command: python /home/vagrant/get-pip.py
+  - name: install docker-py via pip
+    pip: name=docker-py
+
+  #- name: install inclusivedesign / php docker image
+  #  docker:
+  #    name: idrc-php
+  #    image: inclusivedesign/php
+  #    state: reloaded
+  #    pull: always

@@ -18,6 +18,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.synced_folder "ansible", "/ansible", type: "rsync"
+  config.vm.synced_folder "docker", "/docker", type: "rsync"
 
   config.vm.box = "centos/7"
   config.vm.post_up_message = "centos 7 test box up and ready!"
