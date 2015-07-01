@@ -1,0 +1,13 @@
+---
+- name: configure vagrant machine
+  hosts: 127.0.0.1
+  connection: local
+  remote_user: vagrant
+  sudo: yes
+  tasks:
+  - name: install git
+    yum: name=git state=latest
+  - name: install mysql
+    yum: name=mysql state=latest
+  - name: install docker
+    yum: name=docker state=latest
