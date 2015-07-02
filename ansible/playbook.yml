@@ -28,6 +28,7 @@
     # sudo lvreduce -L4G /dev/VolGroup00/LogVol00
     # sudo lvextend -L4G /dev/VolGroup00/docker-pool
     # above commands resize the volume to deal with thinpool issue - can be forced?
+    # also totally breaks everything probably due to not unmounting FS :(
 
   #- name: install inclusivedesign / php docker image
   #  docker:
