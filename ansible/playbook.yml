@@ -25,9 +25,13 @@
     # this addresses a compatibility issue with docker-py and the version of six installed by the ansible rpm
     pip: name=six state=latest
     # TODO: fix issue described at https://jpetazzo.github.io/2014/01/29/docker-device-mapper-resize/  / http://unpoucode.blogspot.ca/2015/06/docker-and-devicemappers-thinpool-in.html
-  - name: install inclusivedesign / php docker image
-    docker:
-      docker_api_version: 1.18
-      name: idrc-php
-      image: inclusivedesign/php
-      state: reloaded
+    # sudo lvreduce -L4G /dev/VolGroup00/LogVol00
+    # sudo lvextend -L4G /dev/VolGroup00/docker-pool
+    # above commands resize the volume to deal with thinpool issue - can be forced?
+
+  #- name: install inclusivedesign / php docker image
+  #  docker:
+  #    docker_api_version: 1.18
+  #    name: idrc-php
+  #    image: inclusivedesign/php
+  #    state: reloaded
